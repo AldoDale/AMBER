@@ -1,0 +1,50 @@
+Package: AMBER
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Collate: 
+    'Classes.R'
+    'aceCalc.R'
+    'build_amber.R'
+    'calculate_diversities.R'
+    'chao1Calc.R'
+    'count_reads.R'
+    'df_to_phyloseq.R'
+    'diversitiesCalc.R'
+    'do.heatmap.R'
+    'do.tree.asvs.R'
+    'do.tree.asvs.nclust.R'
+    'do.tree.samples.R'
+    'removePrimersCutadapt.R'
+    'el_trimmador.R'
+    'filter_dataset.R'
+    'filter_taxonomy.R'
+    'makeitshiny.R'
+    'mergeAndTaxonomy.R'
+    'observedCalc.R'
+    'plotDiversities.R'
+    'plot_anova.R'
+    'plot_bars.R'
+    'plot_heatmap.R'
+    'plot_rda.R'
+    'sample_setup.R'
+    'save_graph.R'
+    'shannonCalc.R'
+    'show.R'
+    'simpsonCalc.R'
+    'themes_and_palettes.R'
+Imports:
+    methods,
+    ggplot2,
+    dplyr
+Depends:
+    dplyr,
+    ggplot2
