@@ -34,23 +34,23 @@ samples_quality <- sample_setup(path = "./man/example_dataset", patternF = "_L00
 #  -nplots = the number of quality plots (for forward and reverse files) to display. This task is slow, a reduced number of plots (e.g., 3) is recommended.
 ```
 ```r
-An object of class "qualityCheck"
-Slot "fwd_qplot":
-
-Slot "rev_qplot":
-
-Slot "samples":
-                                            fwd                                           rev
-1 ./man/example_dataset/Sample1_R1_001.fastq.gz ./man/example_dataset/Sample1_R2_001.fastq.gz
-2 ./man/example_dataset/Sample2_R1_001.fastq.gz ./man/example_dataset/Sample2_R2_001.fastq.gz
-3 ./man/example_dataset/Sample3_R1_001.fastq.gz ./man/example_dataset/Sample3_R2_001.fastq.gz
-4 ./man/example_dataset/Sample4_R1_001.fastq.gz ./man/example_dataset/Sample4_R2_001.fastq.gz
-5 ./man/example_dataset/Sample5_R1_001.fastq.gz ./man/example_dataset/Sample5_R2_001.fastq.gz
-6 ./man/example_dataset/Sample6_R1_001.fastq.gz ./man/example_dataset/Sample6_R2_001.fastq.gz
-7 ./man/example_dataset/Sample7_R1_001.fastq.gz ./man/example_dataset/Sample7_R2_001.fastq.gz
-
-Slot "pattern":
-[1] "_R1_001.fastq.gz" "_R2_001.fastq.gz"
+#An object of class "qualityCheck"
+#Slot "fwd_qplot":
+#
+#Slot "rev_qplot":
+#
+#Slot "samples":
+#                                            fwd                                           rev
+#>1 ./man/example_dataset/Sample1_R1_001.fastq.gz ./man/example_dataset/Sample1_R2_001.fastq.gz
+#>2 ./man/example_dataset/Sample2_R1_001.fastq.gz ./man/example_dataset/Sample2_R2_001.fastq.gz
+#>3 ./man/example_dataset/Sample3_R1_001.fastq.gz ./man/example_dataset/Sample3_R2_001.fastq.gz
+#>4 ./man/example_dataset/Sample4_R1_001.fastq.gz ./man/example_dataset/Sample4_R2_001.fastq.gz
+#>5 ./man/example_dataset/Sample5_R1_001.fastq.gz ./man/example_dataset/Sample5_R2_001.fastq.gz
+#>6 ./man/example_dataset/Sample6_R1_001.fastq.gz ./man/example_dataset/Sample6_R2_001.fastq.gz
+#>7 ./man/example_dataset/Sample7_R1_001.fastq.gz ./man/example_dataset/Sample7_R2_001.fastq.gz
+#
+#Slot "pattern":
+#[1] "_R1_001.fastq.gz" "_R2_001.fastq.gz"
 ```
 
 <p align="center">
@@ -101,9 +101,9 @@ trimmed <- el_trimmador(x = samples_quality,
 ```
 
 ```r
-An object of class "filteredSamples"
-Slot "samples":
-  sample_name                                                          fwd                                                          rev
+#An object of class "filteredSamples"
+#Slot "samples":
+#  sample_name                                                          fwd                                                          rev
 #>1     Sample1 ./man/example_dataset/filtered_reads/Sample1_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample1_R2_001.fastq.gz
 #>2     Sample2 ./man/example_dataset/filtered_reads/Sample2_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample2_R2_001.fastq.gz
 #>3     Sample3 ./man/example_dataset/filtered_reads/Sample3_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample3_R2_001.fastq.gz
@@ -111,16 +111,16 @@ Slot "samples":
 #>5     Sample5 ./man/example_dataset/filtered_reads/Sample5_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample5_R2_001.fastq.gz
 #>6     Sample6 ./man/example_dataset/filtered_reads/Sample6_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample6_R2_001.fastq.gz
 #>7     Sample7 ./man/example_dataset/filtered_reads/Sample7_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample7_R2_001.fastq.gz
-
-Slot "stats":
-                        reads.in reads.out
-Sample1_R1_001.fastq.gz    96584     65208
-Sample2_R1_001.fastq.gz    56704     36015
-Sample3_R1_001.fastq.gz   148093     98695
-Sample4_R1_001.fastq.gz   121245     82491
-Sample5_R1_001.fastq.gz     1208       240
-Sample6_R1_001.fastq.gz    76151     52338
-Sample7_R1_001.fastq.gz    79085     49271
+#
+#Slot "stats":
+#                        reads.in reads.out
+#Sample1_R1_001.fastq.gz    96584     65208
+#Sample2_R1_001.fastq.gz    56704     36015
+#Sample3_R1_001.fastq.gz   148093     98695
+#Sample4_R1_001.fastq.gz   121245     82491
+#Sample5_R1_001.fastq.gz     1208       240
+#Sample6_R1_001.fastq.gz    76151     52338
+#Sample7_R1_001.fastq.gz    79085     49271
 
 Slot "fwd_qplot":
 
