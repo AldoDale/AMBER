@@ -403,7 +403,7 @@ calculate_diversities(object, group, indices, save.csv, facet, pal)
 #### example
 
 ```r
-divs <- AMBER::calculate_diversities(object = cleanObj, group = "site", indices = NULL, save.csv = F, pal = "pokemon")
+divs <- calculate_diversities(object = cleanObj, group = "site", indices = NULL, save.csv = F, pal = "pokemon")
 
 #> divs@data
 #>
@@ -502,9 +502,91 @@ plot_rda(x = cleanObj, group = "site",condition = "treatment",comp = T,showtopta
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rda.png" width="600" />
 </p>
 
+---
+
+### Produce community composition barplots
+
+```r
+plot_bars(object,taxLevel,comp,group,facet, facet1,topx,fill_others,pal)
 
 
+# arguments
 
+# - x = an amberobj.
+
+# - taxLevel = the taxonomic level to which merge the ASVs before the RDA analysis.
+
+# - comp = whether to plot relative abundances.
+
+# - group = column with the group to test.
+
+# - facet = column to use to facet the plot
+
+# - facet1 = second column to use to facet the plot
+
+# - topx = number of taxa to plot.
+
+# - fill_others = whether to fill remaining space with "others".
+
+# - pal = palette to use.
+```
+
+#### Example
+
+```r
+plot_bars(object = cleanObj,taxLevel = "genus",comp =T ,
+          group = "site",facet = "treatment",
+          facet1 = NULL,topx = 25,fill_others = T,pal = "pokemon2")
+          
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/bars.png" width="600" />
+</p>
+
+---
+
+### Plot heatmap and/or cluster analysis
+
+```r
+plot_heatmap(x,taxlevel,ntaxa,sampletip,nclust,cluster,showtaxanames,addTaxaNames,pal.highlight,pal.samples)
+
+
+# arguments
+
+# - x = an amberobj.
+
+# - taxLevel = the taxonomic level to which merge the ASVs before the RDA analysis.
+
+# - ntaxa = number of top most abundant taxa to plot.
+
+# - sampletip = column to use to color the samples cluster analysis tip.
+
+# - nclust = number of clusters to detect for the cluster analysis of taxa. Either a number or "auto" for automatic detection.
+
+# - cluster = whether to cluste "samples", "asvs", or "all".
+
+# - showtaxanames = whether to show taxa names on the y axis.
+
+# - addTaxaNames = whether to add different taxonomic level information to the shown taxa.
+
+# - pal.highlight = palette to use for taxa clusters.
+
+# - pal.samples = palette to use for samples.
+```
+
+#### Example
+
+```r
+plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
+             sampletip = "site",nclust = "auto",cluster = "all",showtaxanames = T,
+             addTaxaNames = "genus",pal.highlight = "pokemon",pal.samples = "pokemon2")
+          
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmap.png" width="600" />
+</p>
 
 
 
