@@ -57,5 +57,6 @@ Slot "pattern":
 
 <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/fwd_plot.png" width="400" />
+  <p>
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rev_plot.png" width="400" />
 </p>
