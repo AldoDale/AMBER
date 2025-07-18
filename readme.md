@@ -605,7 +605,7 @@ plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
 ```
 
 <p align="center">
-  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmaponlynonames.png" width="600" />
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmapolynonames.png" width="600" />
 </p>
 
 
