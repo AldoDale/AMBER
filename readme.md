@@ -1,8 +1,8 @@
+<img align="right" width="200" height="400" src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/logo.png">
 
 # AMBER: Analysis of Microbial Barcodes for Ecological Research
 
 AMBER provides a series of functions to pre-process NGS-derived sequences and to obtain information about microbial communities composition and statistics.
-<img align="right" width="100" height="100" src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/logo.png">
 
 ## Installation
 
