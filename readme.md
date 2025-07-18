@@ -51,14 +51,14 @@ Slot "samples":
 
 Slot "pattern":
 [1] "_R1_001.fastq.gz" "_R2_001.fastq.gz"
-
+```
 
 <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/fwd_plot.png" width="600" />
   <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rev_plot.png" width="600" />
 </p>
-```
+
 
 ### Trim sequences
 
@@ -100,6 +100,7 @@ trimmed <- el_trimmador(x = samples_quality,
 
 ```
 
+```r
 An object of class "filteredSamples"
 Slot "samples":
   sample_name                                                          fwd                                                          rev
@@ -124,7 +125,7 @@ Sample7_R1_001.fastq.gz    79085     49271
 Slot "fwd_qplot":
 
 Slot "rev_qplot":
-
+```
 
 <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/fwd_plot_trimmed.png" width="600" />
