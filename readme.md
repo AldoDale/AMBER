@@ -274,6 +274,9 @@ readsNum <- count_reads(cleanObj)
 #>readsNum$plot
 ```
 
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/readsNum.png" width="600" />
+</p>
 
 
 
