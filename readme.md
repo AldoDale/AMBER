@@ -463,8 +463,13 @@ divs <- AMBER::calculate_diversities(object = cleanObj, group = "site", indices 
 
 ### Redundancy analysis
 
+This function allows to process the dataset for the Redundancy Analysis. It outputs a plot (either showing samples position or samples and species) together
+with the results of the RDA and PERMANOVA tests.
+
 ```r
+
 plot_rda(x, group, condition = F, comp = F, showtoptaxa = NULL, rm.uncl = F, plotfill = NULL,taxlevel = NULL, nperm = 999)
+
 
 # arguments
 
