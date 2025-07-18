@@ -661,7 +661,7 @@ plot_anova(x = cleanObj,taxlevel = "phylum",group = "site",method = "gower")
 
 #### Save plots
 
-This function will create (if it doesen't exist yet) a directory called "figures" and will save the last plot produced in 3 different extensions (png, sve, ps).
+This function will create (if it doesen't exist yet) a directory called "figures" and will save the last plot produced in 3 different extensions (png, svg, ps).
 ```r
 save.graph(filename, w, h)
 
@@ -685,6 +685,5 @@ build_amber(x)
 # arguments
 
 # - x = either a phyloseq object or a data.frame.
-
 
 ```
