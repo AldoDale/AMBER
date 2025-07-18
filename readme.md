@@ -1,4 +1,4 @@
-<img align="right" width="200" height="400" src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/logo.png">
+<img align="right" width="300" height="500" src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/logo.png">
 
 # AMBER: Analysis of Microbial Barcodes for Ecological Research
 
