@@ -575,19 +575,37 @@ plot_heatmap(x,taxlevel,ntaxa,sampletip,nclust,cluster,showtaxanames,addTaxaName
 # - pal.samples = palette to use for samples.
 ```
 
-#### Example
+#### Examples
 
 ```r
 plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
              sampletip = "site",nclust = "auto",cluster = "all",showtaxanames = T,
              addTaxaNames = "genus",pal.highlight = "pokemon",pal.samples = "pokemon2")
-          
 ```
 
 <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmap.png" width="600" />
-  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmap.png" width="600" />
 </p>
 
+```r
+plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
+             sampletip = "site",nclust = 3,cluster = "asvs",showtaxanames = T,
+             addTaxaNames = "genus",pal.highlight = "pokemon",pal.samples = "pokemon2")
+
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmapolyasv.png" width="600" />
+</p>
+
+```r
+plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
+             sampletip = "site",nclust = 3,cluster = "all",showtaxanames = F,
+             addTaxaNames = "genus",pal.highlight = "pokemon",pal.samples = "neon")
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmaponlynonames.png" width="600" />
+</p>
 
 
