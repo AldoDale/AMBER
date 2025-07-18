@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='566.93pt' height='425.20pt' viewBox='0 0 566.93 425.20'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NjYuOTN8MC4wMHw0MjUuMjA='>
+    <rect x='0.00' y='0.00' width='566.93' height='425.20' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NjYuOTN8MC4wMHw0MjUuMjA=)'>
+<rect x='0.00' y='0.00' width='566.93' height='425.20' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMzIuMjN8NDkwLjg4fDMzLjE1fDM5My40OQ=='>
+    <rect x='32.23' y='33.15' width='458.65' height='360.34' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzIuMjN8NDkwLjg4fDMzLjE1fDM5My40OQ==)'>
+<rect x='32.23' y='33.15' width='458.65' height='360.34' style='stroke-width: 1.07;' />
+<circle cx='359.68' cy='133.35' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #F8766D;' />
+<circle cx='367.99' cy='49.53' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #F8766D;' />
+<circle cx='397.49' cy='226.76' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #00BA38;' />
+<circle cx='449.08' cy='377.11' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #00BA38;' />
+<circle cx='135.47' cy='208.63' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #619CFF;' />
+<circle cx='53.08' cy='247.46' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #619CFF;' />
+<line x1='293.80' y1='393.49' x2='293.80' y2='33.15' style='stroke-width: 1.07; stroke: #838B8B; stroke-dasharray: 1.42,4.27; stroke-linecap: butt;' />
+<line x1='32.23' y1='207.14' x2='490.88' y2='207.14' style='stroke-width: 1.07; stroke: #838B8B; stroke-dasharray: 1.42,4.27; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='401.40' y2='302.24' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='394.46,300.83 401.40,302.24 399.15,295.52 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='470.03' y2='158.55' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='465.06,163.60 470.03,158.55 463.18,156.77 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='260.85' y2='90.49' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='265.93,95.43 260.85,90.49 259.11,97.36 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='141.70' y2='172.98' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='148.47,170.87 141.70,172.98 146.91,177.78 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='237.66' y2='299.47' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='237.82,292.39 237.66,299.47 243.88,296.07 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='216.33' y2='283.06' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='218.23,276.23 216.33,283.06 223.19,281.29 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='323.42' y2='312.02' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='318.34,307.07 323.42,312.02 325.16,305.15 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='153.30' y2='238.39' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='158.52,233.60 153.30,238.39 160.06,240.52 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='239.77' y2='290.36' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='240.14,283.29 239.77,290.36 246.09,287.14 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<line x1='293.80' y1='207.14' x2='403.47' y2='173.08' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<polyline points='398.66,178.28 403.47,173.08 396.56,171.52 ' style='stroke-width: 1.07; stroke: #C1CDCD; stroke-linecap: butt;' />
+<text x='390.38' y='314.94' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Paracoccus</text>
+<text x='424.62' y='158.26' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Hymenobacter</text>
+<text x='271.74' y='85.90' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Mycoplasma</text>
+<text x='130.75' y='185.62' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Nocardioides</text>
+<text x='226.62' y='312.19' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Salinispora</text>
+<text x='205.26' y='278.44' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Brachybacterium</text>
+<text x='312.48' y='324.66' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Tumebacillus</text>
+<text x='164.29' y='233.77' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Acinetobacter</text>
+<text x='271.19' y='293.72' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Sutterella</text>
+<text x='392.50' y='185.75' text-anchor='middle' style='font-size: 11.04px;fill: #838B8B; font-family: "Liberation Sans";'>Mycoplasma</text>
+</g>
+<g clip-path='url(#cpMC4wMHw1NjYuOTN8MC4wMHw0MjUuMjA=)'>
+<text x='27.30' y='381.76' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>-4</text>
+<text x='27.30' y='296.05' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>-2</text>
+<text x='27.30' y='210.35' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>0</text>
+<text x='27.30' y='124.64' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>2</text>
+<text x='27.30' y='38.94' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>4</text>
+<polyline points='29.49,378.55 32.23,378.55 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='29.49,292.85 32.23,292.85 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='29.49,207.14 32.23,207.14 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='29.49,121.44 32.23,121.44 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='29.49,35.73 32.23,35.73 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='153.09,396.23 153.09,393.49 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='293.80,396.23 293.80,393.49 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='434.50,396.23 434.50,393.49 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<text x='153.09' y='404.84' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>-2</text>
+<text x='293.80' y='404.84' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>0</text>
+<text x='434.50' y='404.84' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Liberation Sans";'>2</text>
+<text x='261.56' y='417.43' text-anchor='middle' style='font-size: 11.00px; font-family: "Liberation Sans";'>RDA1</text>
+<text transform='translate(13.50,213.32) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: "Liberation Sans";'>RDA2</text>
+<rect x='501.84' y='174.03' width='59.61' height='78.59' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='507.32' y='188.67' style='font-size: 11.00px; font-family: "Liberation Sans";'>site</text>
+<rect x='507.32' y='195.30' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='515.96' cy='203.94' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #F8766D;' />
+<rect x='507.32' y='212.58' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='515.96' cy='221.22' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #00BA38;' />
+<rect x='507.32' y='229.86' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='515.96' cy='238.50' r='3.56' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #619CFF;' />
+<text x='530.08' y='207.14' style='font-size: 8.80px; font-family: "Liberation Sans";'>site_1</text>
+<text x='530.08' y='224.42' style='font-size: 8.80px; font-family: "Liberation Sans";'>site_2</text>
+<text x='530.08' y='241.70' style='font-size: 8.80px; font-family: "Liberation Sans";'>site_3</text>
+<text x='32.23' y='13.50' style='font-size: 11.00px; font-family: "Liberation Sans";'>MODEL SUMMARY: cs = 0.424, uc = 0.576</text>
+<text x='32.23' y='25.38' style='font-size: 11.00px; font-family: "Liberation Sans";'>ANOVA: variance = 52.317, F = 1.103, p-value = 0.267 (ns)</text>
+</g>
+</svg>

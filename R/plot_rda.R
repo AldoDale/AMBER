@@ -79,10 +79,10 @@ setMethod("plot_rda",
 
   coorddf <- merge(coorddf, metass, by = "sample")
 
-  if (isTRUE(condition)) {
+  if (!isFALSE(condition)) {
     rda.aov <- vegan::anova.cca(
       res.rda,
-      permutations = how(blocks = metass[, group], nperm = nperm),
+      permutations = how(blocks = metass[, condition], nperm = nperm),
       by = "terms"
     )
   } else {
@@ -101,7 +101,7 @@ setMethod("plot_rda",
                           ifelse(anovaz$`Pr(>F)`[1] < 0.05, "*",
                                  "ns")))
 
-  if(is.null(condition)){
+  if(isFALSE(condition)){
     plt <- ggplot(coorddf, aes(x = RDA1, y = RDA2))+
       geom_point(shape = 21, color = "white", size = 3, aes(fill = .data[[plotfill]])) +
       theme(panel.background = element_rect(fill = NA, color = "black"),

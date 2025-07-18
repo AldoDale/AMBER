@@ -303,7 +303,7 @@ cleanObj <- filter_dataset(object = cleanObj, sampnames = F, min_reads = 5000)
 # - min_reads = numeric. The minimum number of reads a sample must have to be kept.
 ```
 
-#we can see that we filtered out one sample (Sample 7)
+we can see that we filtered out one sample (Sample 7)
 ```r
 #> cleanObj@stats
 #>
@@ -325,11 +325,11 @@ filter_taxonomy(x, ...)
 # - ... = a formula to be used (e.g., 'genus == "Bifidobacterium"')
 ```
 
-we can always check how did it work
+#### Example
 
 ```r
 
-onlybifido <- AMBER::filter_taxonomy(cleanObj, genus == "Bifidobacterium")
+onlybifido <- filter_taxonomy(cleanObj, genus == "Bifidobacterium")
 
 #> head(onlybifido@df)
 #>                                                                                                                                                                                                                                                                                                                                                                                                                           OTU
@@ -459,8 +459,43 @@ divs <- AMBER::calculate_diversities(object = cleanObj, group = "site", indices 
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/diversities_plot.png" width="600" />
 </p>
 
+---
+
+### Redundancy analysis
+
+```r
+plot_rda(x, group, condition = F, comp = F, showtoptaxa = NULL, rm.uncl = F, plotfill = NULL,taxlevel = NULL, nperm = 999)
+
+# arguments
+
+# - x = an amberobj.
+
+# - group = column with the group to test.
+
+# - condition = the factor to use as a condition for the RDA. It can be either F or a column of the dataframe. 
+
+# - showtoptaxa = whether to show arrows with the RDA results for species. If not F, must be in this format: c(numberOfTaxa, taxonomicLevel)
+
+# - rm.uncl = whether to take into account or not unclassified ASVs when showing species.
+
+# - plotfill = dataframe column to use as factor for the coloring of points.
+
+# - taxLevel = the taxonomic level to which merge the ASVs before the RDA analysis.
+
+# - nperm = number of permutations.
 
 
+```
+##### Example
+
+```r
+plot_rda(x = cleanObj, group = "site",condition = "treatment",comp = T,showtoptaxa = c(10, "genus"), rm.uncl = T, plotfill = "site",taxlevel = NULL)
+
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rda.png" width="600" />
+</p>
 
 
 
