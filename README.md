@@ -1,12 +1,8 @@
----
-output: github_document
----
 
 # AMBER: Analysis of Microbial Barcodes for Ecological Research
 
 AMBER provides a series of functions to pre-process NGS-derived sequences and to obtain information about microbial communities composition and statistics.
 
-aaa
 
 ## Installation
 
@@ -26,7 +22,7 @@ If the sequencing data is split in strand 1 and 2 (or forward and reverse strand
 
 ```r
 
-samples_quality <- sample_setup("../../projects/neptune/fastq", patternF = "_L001_R1_001.fastq.gz", patternR = "_L001_R2_001.fastq.gz", nplots = 3)
+samples_quality <- sample_setup("./man/example_dataset", patternF = "_L001_R1_001.fastq.gz", patternR = "_L001_R2_001.fastq.gz", nplots = 3)
 
 
 #arguments
@@ -60,6 +56,6 @@ Slot "pattern":
 
 
 <p align="center">
-  <img src="AMBER/man/example_figures/fwd_plot.png" width="400" />
-  <img src="AMBER/man/example_figures/rev_plot.png" width="400" />
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/fwd_plot.png" width="400" />
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rev_plot.png" width="400" />
 </p>
