@@ -33,7 +33,7 @@ samples_quality <- sample_setup(path = "./man/example_dataset", patternF = "_L00
 
 #  -nplots = the number of quality plots (for forward and reverse files) to display. This task is slow, a reduced number of plots (e.g., 3) is recommended.
 ```
-
+```r
 An object of class "qualityCheck"
 Slot "fwd_qplot":
 
@@ -58,7 +58,7 @@ Slot "pattern":
   <p align="center">
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rev_plot.png" width="600" />
 </p>
-
+```
 
 ### Trim sequences
 
@@ -103,13 +103,13 @@ trimmed <- el_trimmador(x = samples_quality,
 An object of class "filteredSamples"
 Slot "samples":
   sample_name                                                          fwd                                                          rev
-1     Sample1 ./man/example_dataset/filtered_reads/Sample1_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample1_R2_001.fastq.gz
-2     Sample2 ./man/example_dataset/filtered_reads/Sample2_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample2_R2_001.fastq.gz
-3     Sample3 ./man/example_dataset/filtered_reads/Sample3_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample3_R2_001.fastq.gz
-4     Sample4 ./man/example_dataset/filtered_reads/Sample4_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample4_R2_001.fastq.gz
-5     Sample5 ./man/example_dataset/filtered_reads/Sample5_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample5_R2_001.fastq.gz
-6     Sample6 ./man/example_dataset/filtered_reads/Sample6_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample6_R2_001.fastq.gz
-7     Sample7 ./man/example_dataset/filtered_reads/Sample7_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample7_R2_001.fastq.gz
+#>1     Sample1 ./man/example_dataset/filtered_reads/Sample1_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample1_R2_001.fastq.gz
+#>2     Sample2 ./man/example_dataset/filtered_reads/Sample2_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample2_R2_001.fastq.gz
+#>3     Sample3 ./man/example_dataset/filtered_reads/Sample3_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample3_R2_001.fastq.gz
+#>4     Sample4 ./man/example_dataset/filtered_reads/Sample4_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample4_R2_001.fastq.gz
+#>5     Sample5 ./man/example_dataset/filtered_reads/Sample5_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample5_R2_001.fastq.gz
+#>6     Sample6 ./man/example_dataset/filtered_reads/Sample6_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample6_R2_001.fastq.gz
+#>7     Sample7 ./man/example_dataset/filtered_reads/Sample7_R1_001.fastq.gz ./man/example_dataset/filtered_reads/Sample7_R2_001.fastq.gz
 
 Slot "stats":
                         reads.in reads.out
