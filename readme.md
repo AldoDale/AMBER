@@ -677,6 +677,42 @@ save.graph(filename, w, h)
 
 ```
 
+#### Sample palettes
+
+This function will create a palette of the desired size from a shorter palette.
+Can be accessed by using AMBER:::get.pal
+
+```r
+get.pal(x, pal)
+
+# arguments
+
+# - x = vector on which calculate the unique occurrences.
+
+# - pal = palette to use.
+
+```
+
+#### Example
+
+```r
+#> AMBER:::get.pal(cleanObj@df$family, pal = pal.pokemon.legendaries)
+#>
+#>  [1] "#96BCDF" "#C0CBB1" "#EBDA83" "#F3C977" "#F0AE74" "#D9977B" "#B18389" "#A6849E" "#D1ACBF" "#F3CDD4" "#E1BD90"
+#> [12] "#CEAD4C" "#B58A40" "#9B663A" "#8E7560" "#879B9B" "#88B0C0" "#94B3CC" "#A0A7C2" "#AB7279" "#B54234" "#A77856"
+#> [23] "#99AE79" "#9FB08B" "#A9A69B" "#B0B2B6" "#B5CCDA" "#AAC8D9" "#8898A0" "#716F73" "#886C7B" "#9E6982" "#8D7D97"
+#> [34] "#7993AD" "#5585AC" "#2C6AA2" "#3B5380" "#7D4048" "#9E3E2C" "#73634E" "#53896F" "#9DB27C" "#E8DA8A" "#E0BA82"
+#> [45] "#CC8F78" "#C99178" "#D0AB7D" "#CEB388" "#C0A39A" "#AE98AA" "#8E9DB2" "#6EA3BA" "#6B90AA" "#687D9B" "#797B99"
+#> [56] "#8F7F9C" "#8F7181" "#7E5550" "#7E5A48" "#9C998A" "#B4CABE" "#A19993" "#8E6867" "#9B878F" "#AAAEBF" "#9DBACC"
+#> [67] "#83BACA" "#7DBBB5" "#8CBE8B" "#8DB165" "#63744E" "#3E3C39" "#6E6647" "#9E8F54" "#C1B47A" "#E1D7A4" "#BACEB2"
+#> [78] "#64AAAF" "#3D8B9E" "#5B777A" "#786D5C" "#89965C" "#9BC05C" "#929F73" "#897A8A" "#8482A0" "#8099B5" "#949EA4"
+#> [89] "#BD9270" "#D69260" "#C9ACA2" "#B9C0D8" "#828794" "#4C4E51" "#67686B" "#8F8F92" "#838696" "#5D6588" "#5E6C8B"
+#>[100] "#91A8A3" "#B3CAB0" "#938E95" "#73537A"
+```
+
+---
+
+
 #### Integration with R and other packages
 
 Function to create an amberobj from a phyloseq or a data.frame (with a similar structure obtained from phyloseq::psmelt().
@@ -689,3 +725,41 @@ build_amber(x)
 # - x = either a phyloseq object or a data.frame.
 
 ```
+
+---
+
+##Palettes
+
+Here are shown the available palettes and their colors.
+
+In order:
+
+pal.neon
+
+pal.scrubs
+
+pal.wwdits (sampled from the original poster of "what we do in the shadow")
+
+pal.wwdits2 (sampled from the tv show "what we do in the shadow")
+
+pal.pokemon (sampled from the first generation of pokemon)
+
+pal.pokemon2 (sampled from the second generation of pokemon)
+
+pal.pokemon.legendaries (sampled from the legendary pokemons)
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.neon.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.scrubs.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.wwdits.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.wwdits2.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.pokemon.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.pokemon2.png" width="600" />
+  <p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/pal.pokemon.legendaries.png" width="600" />
+</p>
