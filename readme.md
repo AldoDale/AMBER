@@ -257,3 +257,38 @@ You can check the effects of the filtering using cleanObj@stats and see how many
 
 ```
 
+### Check the number of sequences per sample
+
+```r
+readsNum <- count_reads(cleanObj)
+
+```
+#### Returns: a list of a named vector and a plot
+
+```r
+#>readsNum$data
+#>
+#>Sample 7 Sample 3 Sample 6 Sample 2 Sample 5 Sample 1 Sample 4 
+#>     108    28754    42544    42547    43117    51128    60420 
+
+#>readsNum$plot
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/readsNum.png" width="600" />
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
