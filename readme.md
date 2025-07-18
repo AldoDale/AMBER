@@ -608,4 +608,83 @@ plot_heatmap(x = cleanObj,taxlevel = NULL,ntaxa = 80,
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/heatmapolynonames.png" width="600" />
 </p>
 
+---
 
+### Permanova and heatmap of results
+
+Returns a list with a plot, a dissimilarity matrix, and the PERMANOVA results
+
+```r
+plot_anova(x,taxlevel,group,method)
+
+# arguments
+
+# - x = an amberobj object.
+
+# - taxLevel = whether to agglomerate the dataset to a defined taxonomic level.
+
+# - group = column of the dataframe to compare.
+
+# - method = method to use for the dissimilarity matrix. Any method used in vegan::vegdist.
+
+```
+
+#### Example
+
+```r
+
+plot_anova(x = cleanObj,taxlevel = "phylum",group = "site",method = "gower")
+
+#>$distmat
+#>          Sample 1  Sample 2  Sample 3  Sample 4  Sample 5
+#>Sample 2 0.3676148                                        
+#>Sample 3 0.1890775 0.3389122                              
+#>Sample 4 0.2622898 0.3610942 0.2648520                    
+#>Sample 5 0.6987458 0.4612596 0.6873956 0.5818475          
+#>Sample 6 0.5109374 0.4880023 0.4473122 0.2739819 0.5584089
+#>
+#>$anova
+#>             pairs Df  SumsOfSqs   F.Model        R2   p.value p.adjusted sig  pair1  pair2 sign
+#>1 site_1 vs site_2  1 0.03612738 0.7039381 0.2603381 1.0000000          1     site_1 site_2   ns
+#>2 site_1 vs site_3  1 0.18831207 1.6852658 0.4572983 0.3333333          1     site_1 site_3   ns
+#>3 site_2 vs site_3  1 0.17606160 1.8437358 0.4796729 0.3333333          1     site_2 site_3   ns
+
+#>$plot
+```
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/anova plot.png" width="600" />
+</p>
+
+---
+
+### Utility
+
+#### Save plots
+
+This function will create (if it doesen't exist yet) a directory called "figures" and will save the last plot produced in 3 different extensions (png, sve, ps).
+```r
+save.graph(filename, w, h)
+
+# arguments
+
+# - filename = the name to assign to the new file.
+
+# - w = width of the image.
+
+# - h = height of the image.
+
+```
+
+#### Integration with R and other packages
+
+Function to create an amberobj from a phyloseq or a data.frame (with a similar structure obtained from phyloseq::psmelt().
+
+```r
+build_amber(x)
+
+# arguments
+
+# - x = either a phyloseq object or a data.frame.
+
+
+```
