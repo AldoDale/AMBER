@@ -13,8 +13,9 @@ remotes::install_github("AldoDale/AMBER")
 
 ## How to use
 
-An example dataset is available at #https://github.com/AldoDale/MarKUS/tree/main/MarKUS/man/example_dataset.
+An example dataset is available at https://github.com/AldoDale/AMBER/tree/main/man/example_dataset.
 
+---
 
 ### Setup the samples
 
@@ -62,6 +63,7 @@ samples_quality <- sample_setup(path = "./man/example_dataset", patternF = "_L00
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/rev_plot.png" width="600" />
 </p>
 
+---
 
 ### Trim sequences
 
@@ -140,7 +142,7 @@ Slot "rev_qplot":
 
 By looking at the plots, we can see that the primers were correctly removed
 
-
+---
 
 ### Merge reads and assign taxonomy
 
@@ -205,6 +207,8 @@ An finalObj is a list of 3 data.frame: @df is a data.frame with ASVs information
 #>Sample7  79085    49271     48831     49109  47855   47034 59.472719
 ```
 
+---
+
 ### Cleaning of the dataset and creation of the amberObj
 
 ```r
@@ -257,6 +261,8 @@ You can check the effects of the filtering using cleanObj@stats and see how many
 
 ```
 
+---
+
 ### Check the number of sequences per sample
 
 ```r
@@ -278,7 +284,9 @@ readsNum <- count_reads(cleanObj)
   <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/readsNum.png" width="600" />
 </p>
 
+---
 
+###
 
 
 
