@@ -729,7 +729,7 @@ build_amber(x)
 ---
 
 
-##Palettes
+## Palettes
 
 
 Here are shown the available palettes and their colors.
