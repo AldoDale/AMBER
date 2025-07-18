@@ -736,7 +736,7 @@ In order:
 
 pal.neon
 
-pal.scrubs
+pal.scrubs (sampled from the tv show "scrubs")
 
 pal.wwdits (sampled from the original poster of "what we do in the shadow")
 
