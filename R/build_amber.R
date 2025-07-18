@@ -4,7 +4,7 @@ setGeneric("build_amber", function(x)
 setMethod("build_amber",
           signature("phyloseq"),
           function(x){
-            x <- phyloseq::psmelt(ps)
+            x <- phyloseq::psmelt(x)
             tax <- x %>% select(domain:genus)
             nums <- vector()
             for(i in colnames(tax)){

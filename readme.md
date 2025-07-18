@@ -167,7 +167,7 @@ final <- mergeAndTaxonomy(x = trimmed,
                           
 ```
 
-#### Returns: an finalObj
+#### Returns: an amberobj
 
 ```r
 An finalObj is a list of 3 data.frame: @df is a data.frame with ASVs information (sequence, taxonomy and abundance); @stats is a data.frame with information about taxonomic ranks; @clusteringstats is a data.frame with information of sequences filtering statistics.
@@ -209,10 +209,12 @@ An finalObj is a list of 3 data.frame: @df is a data.frame with ASVs information
 
 ---
 
-### Cleaning of the dataset and creation of the amberObj
+### Cleaning of the dataset and creation of the amberobj
 
 ```r
 cleanObj <- makeitshiny(x = final,kd = "Bacteria",renameasvs = T,renamesamples = T,comp = T,rmSingletons = F,min_abun = 0.001)
+
+# arguments
 
 # - x = a finalObj
 # - kd = the domain the user whishes to keep (NULL if no filtering is required)
@@ -224,7 +226,7 @@ cleanObj <- makeitshiny(x = final,kd = "Bacteria",renameasvs = T,renamesamples =
 
 ```
 
-#### Returns: an amberObj
+#### Returns: an amberobj
 
 You can check the effects of the filtering using cleanObj@stats and see how many taxa you filtered out.
 
@@ -269,7 +271,7 @@ You can check the effects of the filtering using cleanObj@stats and see how many
 readsNum <- count_reads(cleanObj)
 
 ```
-#### Returns: a list of a named vector and a plot
+#### Returns: a list of a named vector, containing the number of reads per sample, and a plot.
 
 ```r
 #>readsNum$data
@@ -286,10 +288,176 @@ readsNum <- count_reads(cleanObj)
 
 ---
 
-###
+### Filter the dataset
+
+#### Reads number and/or sample name-based filtering
+
+```r
+cleanObj <- filter_dataset(object = cleanObj, sampnames = F, min_reads = 5000)
+
+
+# arguments
+
+# - x = an amberobj
+# - sampnames = a string or vector of strings with sample names to remove from the dataset.
+# - min_reads = numeric. The minimum number of reads a sample must have to be kept.
+```
+
+#we can see that we filtered out one sample (Sample 7)
+```r
+#> cleanObj@stats
+#>
+#> domains    phyla  classes   orders families   genera     ASVs  samples 
+#>       1       17       24       62      103      158      652        6 
+```
+
+
+#### Taxonomy-based filtering
+
+```r
+
+filter_taxonomy(x, ...)
+
+
+# arguments
+
+# - x = an amberobj
+# - ... = a formula to be used (e.g., 'genus == "Bifidobacterium"')
+```
+
+we can always check how did it work
+
+```r
+
+onlybifido <- AMBER::filter_taxonomy(cleanObj, genus == "Bifidobacterium")
+
+#> head(onlybifido@df)
+#>                                                                                                                                                                                                                                                                                                                                                                                                                           OTU
+#>1 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAAAGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>2 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAAAGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>3 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAAAGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>4 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAAAGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>5 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAATGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>6 TGGGGAATATTGCACAATGGGCGCAAGCCTGATGCAGCGACGCCGCGTGAGGGATGGAGGCCTTCGGGTTGTAAACCTCTTTTGTTAGGGAGCAAGGCACTTTGTGTTGAGTGTACCTTTCGAATAAGCACCGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGGTGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGCTCGTAGGCGGTTCGTCGCGTCCGGTGTGAAAGTCCATCGCTTAACGGTGGATCCGCGCCGGGTACGGGCGGGCTTGAGTGCGGTAGGGGAGACTGGAATTCCCGGTGTAACGGTGGAATGTGTAGATATCGGGAAGAACACCAATGGCGAAGGCAGGTCTCTGGGCCGTTACTGACGCTGAGGAGCGAAAGCGTGGGGAGCGAACA
+#>    Sample Abundance   domain           phylum          class             order             family           genus    ASV sample_total
+#>1 Sample 1      6195 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium  ASV-4        51128
+#>2 Sample 3      3761 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium  ASV-4        28754
+#>3 Sample 4      3627 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium  ASV-4        60420
+#>4 Sample 2       911 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium  ASV-4        42547
+#>5 Sample 5       432 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium ASV-79        43117
+#>6 Sample 6       276 Bacteria Actinobacteriota Actinobacteria Bifidobacteriales Bifidobacteriaceae Bifidobacterium  ASV-4        42544
+#>  rel_abundance
+#>1   0.121166484
+#>2   0.130799193
+#>3   0.060029791
+#>4   0.021411615
+#>5   0.010019250
+#>6   0.006487401
 
 
 
+#>onlybifido@stats
+#>
+#> domains    phyla  classes   orders families   genera     ASVs  samples 
+#>       1        1        1        1        1        1        4        6 
+```
+
+---
+
+### To test the next functions we will need dummy metadata
+
+```r
+
+cleanObj@df[cleanObj@df$Sample %in% c("Sample 1", "Sample 2", "Sample 3"),"treatment"] <- "treatment_1"
+cleanObj@df[cleanObj@df$Sample %in% c("Sample 4", "Sample 5", "Sample 6"),"treatment"] <- "treatment_2"
+
+cleanObj@df[cleanObj@df$Sample %in% c("Sample 1", "Sample 2"),"site"] <- "site_1"
+cleanObj@df[cleanObj@df$Sample %in% c("Sample 3", "Sample 4"),"site"] <- "site_2"
+cleanObj@df[cleanObj@df$Sample %in% c("Sample 5", "Sample 6"),"site"] <- "site_3"
+
+```
+
+---
+
+### Alpha-diversity calculation
+
+```r
+calculate_diversities(object, group, indices, save.csv, facet, pal)
+
+# arguments
+
+# - object = an amberobj.
+
+# - group = column to use to group samples (if NULL single samples will be taken into account).
+
+# - indices = indices to calculate (if NULL all indices will be output).
+
+# - save.csv = whether to save a csv with diversity values (T or F).
+
+# - facet = column to use to split the plot.
+
+# -pal = palette to use. Available palettes are: "pal.neon", "pal.scrubs", "pal.wwdits", "pal.wwdits2", "pal.pokemon", "pal.pokemon2", "pal.pokemon.legendaries"
+
+```
+
+#### example
+
+```r
+divs <- AMBER::calculate_diversities(object = cleanObj, group = "site", indices = NULL, save.csv = F, pal = "pokemon")
+
+#> divs@data
+#>
+#>     Sample     Description    value  Group
+#>1  Sample 1        Observed 138.0000 site_1
+#>2  Sample 1             ACE 138.0000 site_1
+#>3  Sample 1         Shannon   3.4251 site_1
+#>4  Sample 1   Simpson.gamma   0.0760 site_1
+#>5  Sample 1    Gini.Simpson   0.9240 site_1
+#>6  Sample 1 inverse.Simpson  13.1579 site_1
+#>7  Sample 1           Chao1 138.0000 site_1
+#>8  Sample 2        Observed 110.0000 site_1
+#>9  Sample 2         Shannon   3.0238 site_1
+#>10 Sample 2           Chao1 110.0000 site_1
+#>11 Sample 2    Gini.Simpson   0.8930 site_1
+#>12 Sample 2             ACE 110.0000 site_1
+#>13 Sample 2 inverse.Simpson   9.3458 site_1
+#>14 Sample 2   Simpson.gamma   0.1070 site_1
+#>15 Sample 3        Observed 119.0000 site_2
+#>16 Sample 3         Shannon   3.6818 site_2
+#>17 Sample 3           Chao1 119.0000 site_2
+#>18 Sample 3             ACE 119.0000 site_2
+#>19 Sample 3   Simpson.gamma   0.0516 site_2
+#>20 Sample 3    Gini.Simpson   0.9484 site_2
+#>21 Sample 3 inverse.Simpson  19.3798 site_2
+#>22 Sample 4        Observed 280.0000 site_2
+#>23 Sample 4         Shannon   4.8011 site_2
+#>24 Sample 4           Chao1 280.0000 site_2
+#>25 Sample 4             ACE 280.0000 site_2
+#>26 Sample 4   Simpson.gamma   0.0164 site_2
+#>27 Sample 4    Gini.Simpson   0.9836 site_2
+#>28 Sample 4 inverse.Simpson  60.9756 site_2
+#>29 Sample 5           Chao1 266.0000 site_3
+#>30 Sample 5        Observed 266.0000 site_3
+#>31 Sample 5             ACE      NaN site_3
+#>32 Sample 5         Shannon   5.1446 site_3
+#>33 Sample 5   Simpson.gamma   0.0108 site_3
+#>34 Sample 5    Gini.Simpson   0.9892 site_3
+#>35 Sample 5 inverse.Simpson  92.5926 site_3
+#>36 Sample 6   Simpson.gamma   0.0101 site_3
+#>37 Sample 6        Observed 300.0000 site_3
+#>38 Sample 6         Shannon   5.1886 site_3
+#>39 Sample 6           Chao1 300.0000 site_3
+#>40 Sample 6    Gini.Simpson   0.9899 site_3
+#>41 Sample 6             ACE 300.0000 site_3
+#>42 Sample 6 inverse.Simpson  99.0099 site_3
+
+
+#>divs@plot
+```
+
+<p align="center">
+  <img src="https://github.com/AldoDale/AMBER/blob/main/man/example_figures/diversities_plot.png" width="600" />
+</p>
 
 
 

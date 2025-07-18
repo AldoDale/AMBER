@@ -10,7 +10,7 @@
 #' @return An Aldo object.
 #' @export
 setGeneric("calculate_diversities", function(object,
-                                             group = NA,
+                                             group = NULL,
                                              indices = NULL,
                                              save.csv = F,
                                              facet = NULL,
