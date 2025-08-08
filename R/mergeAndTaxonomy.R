@@ -90,6 +90,8 @@ setMethod("mergeAndTaxonomy",
               ) # use all processors
             ranks <-
               c("domain",
+                "kingdom",
+                "division",
                 "phylum",
                 "class",
                 "order",
@@ -146,7 +148,10 @@ setMethod("mergeAndTaxonomy",
 
             x <- phyloseq::psmelt(ps)
             #x$refseq <- phyloseq::taxa_names(ps)
-            tax <- x %>% select(domain:genus)
+            start <- intersect(c("domain","kingdom"), names(x))[1]
+
+            tax <- x %>%
+              select( all_of(start) : genus )
             nums <- vector()
             for(i in colnames(tax)){
               nums[[i]] <- tax[,i] %>%

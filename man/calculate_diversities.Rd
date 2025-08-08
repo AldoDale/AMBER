@@ -6,7 +6,7 @@
 \usage{
 calculate_diversities(
   object,
-  group = NA,
+  group = NULL,
   indices = NULL,
   save.csv = F,
   facet = NULL,
