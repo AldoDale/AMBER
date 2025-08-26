@@ -21,10 +21,11 @@ setMethod("makeitshiny",
                    min_abun = F){
             x <- x@df
             if (!is.null(kd)){
-              if (identical(grep(as.character(paste0("(?i)", kd)), x[, "domain"]), integer(0)))
+              kdcol <- if ("domain" %in% names(x)) "domain" else "kingdom"
+              if (identical(grep(as.character(paste0("(?i)", kd)), x[, kdcol]), integer(0)))
                 stop("The kingdom/domanin of your choice is not present in the dataset",
                      call. = FALSE)
-              x <- x[grepl(as.character(paste0("(?i)", "bacteria")), x$domain),]
+              x <- x[grepl(as.character(paste0("(?i)", kd)), x[,kdcol]),]
             }
             if(renameasvs){
               x$ASV <- paste0(
@@ -41,6 +42,7 @@ setMethod("makeitshiny",
             if(rmSingletons){
               x <- x[x$Abundance > 1,]
             }
+
             if(comp){
               xrel <- x %>%
                 group_by(Sample) %>%
@@ -48,10 +50,11 @@ setMethod("makeitshiny",
                 ungroup() %>%
                 mutate(rel_abundance = Abundance / sample_total) %>%
                 as.data.frame()
+              x <- xrel
             }
-            if(min_abun){
+            if(!is.null(min_abun)){
               if(min_abun < 1){
-                p <- xrel[xrel$rel_abundance > min_abun,]
+                p <- x[x$rel_abundance > min_abun,]
                 x <- x[x$ASV %in% p$ASV,]
                 x <-  x %>%
                   group_by(Sample) %>%
@@ -62,8 +65,16 @@ setMethod("makeitshiny",
               } else {
                 x <- x[x$Abundance > min_abun,]
               }
+            } else if (is.null(min_abun)){
+              x <- x
             }
-            tax <- x %>% select(domain:genus)
+
+            start_col <- if ("domain" %in% names(x)) "domain" else "kingdom"
+            index1 <- match(start_col, names(x))
+            index2 <- match("genus", names(x))
+            cols <- names(x)[index1:index2]
+            tax <- x %>% select(all_of(cols))
+
             nums <- vector()
             for(i in colnames(tax)){
               nums[[i]] <- tax[,i] %>%

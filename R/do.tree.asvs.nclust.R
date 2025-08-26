@@ -30,12 +30,12 @@ do.tree.asvs.nclust <- function(x, nclust, pal.highlight) {
   dendro$data$subs <- dendro$data$node %in% clade
 
   pal.highlight1 <- match.arg(pal.highlight, names(palettes))
-  persPal <- palettes[[pal.highlight1]]
+  chosenpal <- palettes[[pal.highlight1]]
 
-  if(length(unique(dendro$data$group)) > length(persPal)){
+  if(length(unique(dendro$data$group)) > length(chosenpal)){
     persPal <- get.pal(dendro$data$group, pal = persPal)
   } else {
-    persPal <- head(palettes[[pal.highlight1]], n = length(unique(dendro$data$group)))
+    persPal <- head(chosenpal, n = length(unique(dendro$data$group)))
   }
   g2 <- dendro +
     ggplot2::theme(

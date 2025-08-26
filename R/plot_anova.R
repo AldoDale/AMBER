@@ -8,10 +8,10 @@
 #' @return a list
 #' @export
 #'
-setGeneric("plot_anova", function(x, taxlevel, group, method) standardGeneric("plot_anova"))
+setGeneric("plot_anova", function(x, taxlevel, group, method, showp) standardGeneric("plot_anova"))
 
 setMethod("plot_anova",
-          signature = "amberobj",function(x, taxlevel, group, method){
+          signature = "amberobj",function(x, taxlevel, group, method, showp){
   results <- list("distmat" = matrix(), "anova" = data.frame(), "plot" = NULL)
   x <- x@df
   value_cols <- c("Abundance", "rel_abundance")
@@ -57,19 +57,22 @@ setMethod("plot_anova",
   pwad <- pairwiseAdonis::pairwise.adonis(dists,metass[,group])
   pwad$pair1 <- gsub(" vs.*", "",pwad$pairs)
   pwad$pair2 <- gsub(".*vs ", "",pwad$pairs)
-  pwad$sign <- ifelse(pwad$p.adjusted <= 0.05, "sign (*)", "ns")
+  pwad$sign <- ifelse(pwad$p.adjusted <= 0.05, paste0(pwad$p.adjusted, ", sign (*)"), paste0(pwad$p.adjusted, ", ns"))
   plt <- ggplot2::ggplot(pwad, ggplot2::aes(x = pair1, y = pair2, fill = p.adjusted, label = sign))+
     ggplot2::geom_tile(color = "black", linewidth = .2)+
-    ggplot2::geom_text(color = "white", size =5)+
     ggplot2::scale_fill_gradient(low = "#9c2d2d", high = "grey")+
     ggplot2::theme(panel.background = ggplot2::element_blank(),
                    panel.border = ggplot2::element_rect(color = "black", fill = NA),
                    panel.grid.major = ggplot2::element_line())+
     ggplot2::scale_x_discrete(expand = c(0, 0)) +
     ggplot2::scale_y_discrete(expand = c(0, 0))
+  if(showp){
+    plt <- plt +
+      ggplot2::geom_text(color = "white", size =5)
+  }
   results[[1]] <- dists
   results[[2]] <- pwad
   results[[3]] <- plt
-  return(results)
+  return(list(results, pwad))
           }
 )

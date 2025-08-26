@@ -26,9 +26,11 @@ do.tree.samples <- function(x, meta,sampletip = sampletip, pal.samples, ...){
 
   treedata <- dplyr::left_join(tree.s$data, sans, by=c('label'='Sample'))
 
-  pal.samples1 <- match.arg(pal.samples, names(palettes))
-
-  persPal <- palettes[[pal.samples1]]
+  pname <- if (is.character(pal.samples)) as.character(pal.samples)[1L] else NULL
+  persPal <- if (is.character(pal.samples) && length(pal.samples) > 1 &&
+                 all(vapply(pal.samples, function(cl) tryCatch({col2rgb(cl); TRUE}, error=function(e) FALSE), logical(1))))
+    unname(pal.samples) else palettes[[pname]]
+  if (is.null(persPal)) { obj <- get0(pname, inherits = TRUE); persPal <- if (is.character(obj) && length(obj)>0) unname(obj) else palettes[[1]] }
 
   if(length(unique(treedata$sampletips)) > length(persPal)){
     persPal <- get.pal(treedata$sampletips, pal = persPal)

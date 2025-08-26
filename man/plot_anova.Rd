@@ -4,7 +4,7 @@
 \alias{plot_anova}
 \title{Title plot_anova}
 \usage{
-plot_anova(x, taxlevel, group, method)
+plot_anova(x, taxlevel, group, method, showp)
 }
 \arguments{
 \item{x}{an amberobj}
