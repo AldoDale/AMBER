@@ -64,20 +64,47 @@ setMethod("plot_bars",
             if (!is.null(topx)) {
               higher_group <- setdiff(grouping_vars, taxVar)
 
+              # compute totals per higher_group from df1 (the pre-topx df)
+              group_totals <- df1 %>%
+                group_by(across(all_of(higher_group))) %>%
+                summarise(total = if (comp) 1 else sum(value, na.rm = TRUE), .groups = "drop")
+
+              # select top-x taxa per higher_group
               df_top <- df1 %>%
                 group_by(across(all_of(higher_group))) %>%
                 filter(!is.na(.data[[taxVar]])) %>%
-                slice_max(order_by = value, n = topx) %>%
+                slice_max(order_by = value, n = topx, with_ties = FALSE) %>%
                 ungroup()
 
-              if (comp && fill_others) {
-                others <- df_top %>%
-                  group_by(across(all_of(higher_group))) %>%
-                  summarise(value = 1 - sum(value, na.rm = TRUE), .groups = "drop") %>%
-                  filter(value > 0) %>%
-                  mutate(!!taxVar := "Others")
+              if (fill_others) {
+                if (length(higher_group) == 0) {
+                  # single global group (no additional grouping columns)
+                  total_val <- group_totals$total[1]
+                  sum_top <- sum(df_top$value, na.rm = TRUE)
+                  others_val <- total_val - sum_top
+                  if (others_val > 0) {
+                    others <- tibble::tibble(value = others_val) %>%
+                      mutate(!!taxVar := "Others")
+                    df1 <- bind_rows(df_top, others)
+                  } else {
+                    df1 <- df_top
+                  }
+                } else {
+                  # compute sum of top taxa per group
+                  sum_top <- df_top %>%
+                    group_by(across(all_of(higher_group))) %>%
+                    summarise(sum_top = sum(value, na.rm = TRUE), .groups = "drop")
 
-                df1 <- bind_rows(df_top, others)
+                  # create Others = total - sum_top per group
+                  others <- group_totals %>%
+                    left_join(sum_top, by = higher_group) %>%
+                    mutate(sum_top = ifelse(is.na(sum_top), 0, sum_top),
+                           value = total - sum_top) %>%
+                    filter(value > 0) %>%
+                    mutate(!!taxVar := "Others")
+
+                  df1 <- bind_rows(df_top, others)
+                }
               } else {
                 df1 <- df_top
               }
@@ -126,5 +153,4 @@ setMethod("plot_bars",
             p + theme_Aldo
           }
 )
-
 
