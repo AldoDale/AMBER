@@ -23,8 +23,8 @@ setMethod("filter_dataset",
 
               object <- object[object$Sample %in% totValues1[totValues1$totValues > min_reads, "sample"],]
             }
-
-            tax <- object %>% select(domain:genus)
+            start <- intersect(c("domain","kingdom"), names(object))[1]
+            tax <- object %>% select(all_of(start):genus)
             nums <- vector()
             for(i in colnames(tax)){
               nums[[i]] <- tax[,i] %>%
@@ -44,4 +44,3 @@ setMethod("filter_dataset",
             amberobj <- new("amberobj", df = object, stats = nums)
             return(amberobj)
           })
-

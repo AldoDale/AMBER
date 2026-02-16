@@ -43,8 +43,8 @@ setMethod("plot_bars",
             grouping_vars <- grouping_vars[grouping_vars %in% names(x)]
 
             sample_taxon_means <- x %>%
-              group_by(Sample, !!sym(taxVar)) %>%
-              summarise(value = sum(.data[[value_col]], na.rm = TRUE), .groups = "drop")
+              dplyr::group_by(Sample, !!sym(taxVar)) %>%
+              dplyr::summarise(value = sum(.data[[value_col]], na.rm = TRUE), .groups = "drop")
 
             group_vars_no_tax <- setdiff(grouping_vars, taxVar)
             sample_to_group <- x %>%
@@ -57,8 +57,8 @@ setMethod("plot_bars",
 
             df1 <- sample_taxon_means %>%
               left_join(sample_to_group, by = "Sample") %>%
-              group_by(across(all_of(grouping_vars))) %>%
-              summarise(value = mean(value, na.rm = TRUE), .groups = "drop")
+              dplyr::group_by(across(all_of(grouping_vars))) %>%
+              dplyr::summarise(value = mean(value, na.rm = TRUE), .groups = "drop")
 
 
             if (!is.null(topx)) {
@@ -66,12 +66,12 @@ setMethod("plot_bars",
 
               # compute totals per higher_group from df1 (the pre-topx df)
               group_totals <- df1 %>%
-                group_by(across(all_of(higher_group))) %>%
-                summarise(total = if (comp) 1 else sum(value, na.rm = TRUE), .groups = "drop")
+                dplyr::group_by(across(all_of(higher_group))) %>%
+                dplyr::summarise(total = if (comp) 1 else sum(value, na.rm = TRUE), .groups = "drop")
 
               # select top-x taxa per higher_group
               df_top <- df1 %>%
-                group_by(across(all_of(higher_group))) %>%
+                dplyr::group_by(across(all_of(higher_group))) %>%
                 filter(!is.na(.data[[taxVar]])) %>%
                 slice_max(order_by = value, n = topx, with_ties = FALSE) %>%
                 ungroup()
@@ -92,8 +92,8 @@ setMethod("plot_bars",
                 } else {
                   # compute sum of top taxa per group
                   sum_top <- df_top %>%
-                    group_by(across(all_of(higher_group))) %>%
-                    summarise(sum_top = sum(value, na.rm = TRUE), .groups = "drop")
+                    dplyr::group_by(across(all_of(higher_group))) %>%
+                    dplyr::summarise(sum_top = sum(value, na.rm = TRUE), .groups = "drop")
 
                   # create Others = total - sum_top per group
                   others <- group_totals %>%
@@ -121,8 +121,8 @@ setMethod("plot_bars",
             if (taxVar %in% names(df1)) {
               taxa_levels <- df1 %>%
                 filter(.data[[taxVar]] != "Others") %>%
-                group_by(.data[[taxVar]]) %>%
-                summarise(total = sum(value, na.rm = TRUE), .groups = "drop") %>%
+                dplyr::group_by(.data[[taxVar]]) %>%
+                dplyr::summarise(total = sum(value, na.rm = TRUE), .groups = "drop") %>%
                 arrange(total) %>%
                 pull(!!taxVar)
 

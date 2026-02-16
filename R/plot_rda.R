@@ -32,7 +32,7 @@ setMethod("plot_rda",
       group_by(!!sym(taxlevel), Sample) %>%
       summarise(abundance = sum(.data[[value_col]])) %>%
       filter_at(vars(1), all_vars(!is.na(.)))%>%
-      pivot_wider(
+      tidyr::pivot_wider(
         names_from   = all_of("Sample"),
         values_from  = all_of("abundance"),
         values_fill  = 0       # fills *all* missing combinations with 0
@@ -48,7 +48,7 @@ setMethod("plot_rda",
   } else {
     otts <- x %>%
       select(all_of(c("Sample", "ASV", value_col))) %>%
-      pivot_wider(
+      tidyr::pivot_wider(
         names_from   = all_of("Sample"),
         values_from  = all_of(value_col),
         values_fill  = 0       # fills *all* missing combinations with 0

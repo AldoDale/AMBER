@@ -1,3 +1,4 @@
+
 #' Function to get a palette of a certain number of colors
 #'
 #' @param x object.

@@ -89,15 +89,15 @@ setMethod("mergeAndTaxonomy",
                 verbose = FALSE
               ) # use all processors
             ranks <-
-              c("domain",
-                "kingdom",
-                "division",
-                "phylum",
-                "class",
-                "order",
-                "family",
-                "genus",
-                "species") # ranks of interest
+              c("domain", "Domain",
+                "kingdom","Kingdom",
+                "division","Division",
+                "phylum","Phylum",
+                "class","Class",
+                "order","Order",
+                "family","Family",
+                "genus","Genus",
+                "species","Species") # ranks of interest
             # Convert the output object of class "Taxa" to a matrix analogous to the output from assignTaxonomy
             taxid <- t(sapply(ids, function(x) {
               m <- match(ranks, x$rank)
